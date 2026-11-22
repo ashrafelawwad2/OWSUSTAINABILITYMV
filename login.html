@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sign in · Oriental Weavers Projects, Monitoring &amp; M&amp;V Platform</title>
+<meta name="description" content="Secure access to the Oriental Weavers projects management, monitoring and Measurement &amp; Verification platform.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.2/css/all.min.css">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<main class="auth-wrap">
+  <div class="auth-card">
+    <div class="auth-lang">
+      <button class="lang-btn" id="langBtn" type="button" title="التبديل إلى العربية" aria-label="Language">
+        <i class="fa-solid fa-language"></i><span id="langTxt">ع</span>
+      </button>
+    </div>
+    <div class="brand">
+      <div class="brand-mark">OW</div>
+      <div class="brand-txt">
+        <strong>Oriental Weavers</strong>
+        <span>Projects &amp; M&amp;V</span>
+      </div>
+    </div>
+
+    <h2>Projects, Monitoring &amp; M&amp;V</h2>
+    <p class="sub">Oriental Weavers Group · portfolio, performance verification and reporting</p>
+
+    <form id="loginForm" novalidate>
+      <div class="field">
+        <label for="email">Username / email</label>
+        <input type="text" id="email" autocomplete="username" placeholder="name@orientalweavers.com" value="ashraf.elawwad@orientalweavers.com" required>
+      </div>
+      <div class="field">
+        <label for="pwd">Password</label>
+        <input type="password" id="pwd" autocomplete="current-password" placeholder="Enter your password" value="axis-demo" required>
+      </div>
+
+      <div class="field">
+        <label>Access level</label>
+        <div class="role-pick" id="rolePick">
+          <div class="role-opt on" data-role="admin" tabindex="0">
+            <strong>Administrator</strong><span>Full control</span>
+          </div>
+          <div class="role-opt" data-role="editor" tabindex="0">
+            <strong>Editor</strong><span>Manage projects</span>
+          </div>
+          <div class="role-opt" data-role="verifier" tabindex="0">
+            <strong>M&amp;V Verifier</strong><span>Verify savings</span>
+          </div>
+          <div class="role-opt" data-role="viewer" tabindex="0">
+            <strong>Viewer</strong><span>Read-only</span>
+          </div>
+        </div>
+        <div class="hint">Demonstration access selector. In production this is derived from the authenticated account and Hosted Access Rules — never from the browser.</div>
+      </div>
+
+      <button class="btn btn-primary" type="submit" style="width:100%;margin-top:6px;padding:10px">
+        <i class="fa-solid fa-right-to-bracket"></i> Sign in to the platform
+      </button>
+    </form>
+
+    <div class="divider"></div>
+
+    <a class="btn" id="viewerLink" href="index.html?view=1" style="width:100%;padding:10px">
+      <i class="fa-solid fa-lock-open"></i> Open read-only viewer dashboard
+    </a>
+    <p class="tiny muted" style="text-align:center;margin:9px 0 0">
+      Shareable viewer link — dashboards, project details and reports without editing rights.
+    </p>
+
+    <div class="banner banner-info" style="margin:18px 0 0;font-size:11.5px">
+      <i class="fa-solid fa-shield-halved"></i>
+      <div><strong>Security note.</strong> Route protection is enforced by the platform dispatcher
+      (Hosted Access Rules). Administrative functions remain hidden from viewer sessions.</div>
+    </div>
+  </div>
+</main>
+
+<script src="js/i18n.js"></script>
+<script src="js/core.js"></script>
+<script>
+'use strict';
+(function () {
+  let role = 'admin';
+
+  /* Language toggle — reloads so every label is rebuilt in the new language. */
+  const langBtn = document.getElementById('langBtn');
+  const langTxt = document.getElementById('langTxt');
+  if (langBtn) {
+    langTxt.textContent = I18N.toggleLabel;
+    langBtn.title = I18N.toggleTitle;
+    langBtn.addEventListener('click', () => I18N.toggle());
+  }
+
+  /* Once the tree is painted, translate anything the DOM walk hasn't reached
+     (also covers the Arabic font linking for the auth card). */
+  I18N.apply(document.body);
+
+  document.querySelectorAll('.role-opt').forEach(el => {
+    const set = () => {
+      document.querySelectorAll('.role-opt').forEach(x => x.classList.remove('on'));
+      el.classList.add('on');
+      role = el.getAttribute('data-role');
+      const emailEl = document.getElementById('email');
+      const map = {
+        admin: 'ashraf.elawwad@orientalweavers.com',
+        editor: 'maged.mamdouh@orientalweavers.com',
+        verifier: 'ashraf.elawwad@orientalweavers.com',
+        viewer: 'maged.mamdouh@orientalweavers.com'
+      };
+      emailEl.value = map[role] || emailEl.value;
+    };
+    el.addEventListener('click', set);
+    el.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); set(); } });
+  });
+
+  document.getElementById('loginForm').addEventListener('submit', e => {
+    e.preventDefault();
+    const email = document.getElementById('email').value.trim();
+    const pwd = document.getElementById('pwd').value;
+    if (!email || !pwd) { err('Enter your username and password.'); return; }
+
+    const names = {
+      admin: 'Ashraf Elawwad',
+      editor: 'Maged Mamdouh',
+      verifier: 'Ashraf Elawwad',
+      viewer: 'Maged Mamdouh'
+    };
+    Session.write({
+      role: role,
+      name: names[role],
+      email: email,
+      issued: Date.now()
+    });
+    audit('Login', 'session', email, 'Signed in as ' + Session.roleLabel(role));
+
+    const next = new URLSearchParams(location.search).get('next');
+    location.href = next ? decodeURIComponent(next) : 'index.html';
+  });
+
+  // Already signed in → go straight to the dashboard
+  if (Session.read() && !new URLSearchParams(location.search).get('stay')) {
+    const next = new URLSearchParams(location.search).get('next');
+    if (next) location.replace(decodeURIComponent(next));
+  }
+})();
+</script>
+</body>
+</html>

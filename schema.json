@@ -1,0 +1,801 @@
+[
+  {
+    "name": "facilities",
+    "fields": [
+      {
+        "name": "id",
+        "type": "text"
+      },
+      {
+        "name": "level",
+        "type": "text",
+        "options": [
+          "group",
+          "company",
+          "factory",
+          "department"
+        ]
+      },
+      {
+        "name": "name",
+        "type": "text"
+      },
+      {
+        "name": "code",
+        "type": "text"
+      },
+      {
+        "name": "parent_id",
+        "type": "text"
+      },
+      {
+        "name": "location",
+        "type": "text"
+      },
+      {
+        "name": "country",
+        "type": "text"
+      },
+      {
+        "name": "headcount",
+        "type": "number"
+      },
+      {
+        "name": "notes",
+        "type": "text"
+      }
+    ]
+  },
+  {
+    "name": "projects",
+    "fields": [
+      {
+        "name": "id",
+        "type": "text"
+      },
+      {
+        "name": "code",
+        "type": "text"
+      },
+      {
+        "name": "name",
+        "type": "text"
+      },
+      {
+        "name": "description",
+        "type": "text"
+      },
+      {
+        "name": "category",
+        "type": "text",
+        "options": [
+          "energy",
+          "sustainability",
+          "process",
+          "facilities",
+          "operations"
+        ]
+      },
+      {
+        "name": "subcategory",
+        "type": "text"
+      },
+      {
+        "name": "company",
+        "type": "text"
+      },
+      {
+        "name": "factory",
+        "type": "text"
+      },
+      {
+        "name": "department",
+        "type": "text"
+      },
+      {
+        "name": "owner",
+        "type": "text"
+      },
+      {
+        "name": "team",
+        "type": "text"
+      },
+      {
+        "name": "sponsor",
+        "type": "text"
+      },
+      {
+        "name": "contractor",
+        "type": "text"
+      },
+      {
+        "name": "priority",
+        "type": "text",
+        "options": [
+          "Critical",
+          "High",
+          "Medium",
+          "Low"
+        ]
+      },
+      {
+        "name": "status",
+        "type": "text",
+        "options": [
+          "Not Started",
+          "Under Study",
+          "In Progress",
+          "Completed",
+          "On Hold",
+          "Cancelled"
+        ]
+      },
+      {
+        "name": "idea_date",
+        "type": "text"
+      },
+      {
+        "name": "feasibility_date",
+        "type": "text"
+      },
+      {
+        "name": "approval_date",
+        "type": "text"
+      },
+      {
+        "name": "planned_start",
+        "type": "text"
+      },
+      {
+        "name": "actual_start",
+        "type": "text"
+      },
+      {
+        "name": "planned_end",
+        "type": "text"
+      },
+      {
+        "name": "actual_end",
+        "type": "text"
+      },
+      {
+        "name": "commissioning_date",
+        "type": "text"
+      },
+      {
+        "name": "mv_start",
+        "type": "text"
+      },
+      {
+        "name": "mv_end",
+        "type": "text"
+      },
+      {
+        "name": "scope",
+        "type": "text"
+      },
+      {
+        "name": "tech_specs",
+        "type": "text"
+      },
+      {
+        "name": "existing_situation",
+        "type": "text"
+      },
+      {
+        "name": "proposed_improvement",
+        "type": "text"
+      },
+      {
+        "name": "capex_estimated",
+        "type": "number"
+      },
+      {
+        "name": "capex_approved",
+        "type": "number"
+      },
+      {
+        "name": "capex_actual",
+        "type": "number"
+      },
+      {
+        "name": "opex_annual",
+        "type": "number"
+      },
+      {
+        "name": "savings_expected",
+        "type": "number"
+      },
+      {
+        "name": "production_benefit",
+        "type": "text"
+      },
+      {
+        "name": "env_benefit",
+        "type": "text"
+      },
+      {
+        "name": "payback_expected",
+        "type": "number"
+      },
+      {
+        "name": "progress",
+        "type": "number"
+      },
+      {
+        "name": "mv_method",
+        "type": "text",
+        "options": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ]
+      },
+      {
+        "name": "verification_status",
+        "type": "text",
+        "options": [
+          "Not Started",
+          "In Progress",
+          "Verification Pending",
+          "Verified",
+          "Not Verified"
+        ]
+      },
+      {
+        "name": "savings_kwh_year",
+        "type": "number"
+      },
+      {
+        "name": "savings_gas_nm3_year",
+        "type": "number"
+      },
+      {
+        "name": "savings_water_m3_year",
+        "type": "number"
+      },
+      {
+        "name": "savings_waste_t_year",
+        "type": "number"
+      },
+      {
+        "name": "ghg_avoided_tco2e",
+        "type": "number"
+      },
+      {
+        "name": "sec_improvement_pct",
+        "type": "number"
+      },
+      {
+        "name": "capacity_added",
+        "type": "number"
+      },
+      {
+        "name": "capacity_unit",
+        "type": "text"
+      },
+      {
+        "name": "renewable_mwh_year",
+        "type": "number"
+      },
+      {
+        "name": "notes",
+        "type": "text"
+      },
+      {
+        "name": "dataset_version",
+        "type": "text"
+      },
+      {
+        "name": "archived",
+        "type": "bool"
+      },
+      {
+        "name": "created_at",
+        "type": "datetime"
+      },
+      {
+        "name": "updated_at",
+        "type": "datetime"
+      }
+    ]
+  },
+  {
+    "name": "milestones",
+    "fields": [
+      {
+        "name": "id",
+        "type": "text"
+      },
+      {
+        "name": "project_id",
+        "type": "text"
+      },
+      {
+        "name": "name",
+        "type": "text"
+      },
+      {
+        "name": "owner",
+        "type": "text"
+      },
+      {
+        "name": "planned_date",
+        "type": "text"
+      },
+      {
+        "name": "actual_date",
+        "type": "text"
+      },
+      {
+        "name": "status",
+        "type": "text",
+        "options": [
+          "Not Started",
+          "In Progress",
+          "Completed",
+          "Delayed",
+          "At Risk",
+          "Cancelled"
+        ]
+      },
+      {
+        "name": "weight",
+        "type": "number"
+      },
+      {
+        "name": "seq",
+        "type": "number"
+      },
+      {
+        "name": "notes",
+        "type": "text"
+      }
+    ]
+  },
+  {
+    "name": "tasks",
+    "fields": [
+      {
+        "name": "id",
+        "type": "text"
+      },
+      {
+        "name": "project_id",
+        "type": "text"
+      },
+      {
+        "name": "milestone_id",
+        "type": "text"
+      },
+      {
+        "name": "name",
+        "type": "text"
+      },
+      {
+        "name": "assignee",
+        "type": "text"
+      },
+      {
+        "name": "start_date",
+        "type": "text"
+      },
+      {
+        "name": "due_date",
+        "type": "text"
+      },
+      {
+        "name": "status",
+        "type": "text",
+        "options": [
+          "Not Started",
+          "In Progress",
+          "Completed",
+          "Blocked",
+          "Cancelled"
+        ]
+      },
+      {
+        "name": "percent",
+        "type": "number"
+      },
+      {
+        "name": "dependency",
+        "type": "text"
+      },
+      {
+        "name": "priority",
+        "type": "text",
+        "options": [
+          "Critical",
+          "High",
+          "Medium",
+          "Low"
+        ]
+      },
+      {
+        "name": "notes",
+        "type": "text"
+      }
+    ]
+  },
+  {
+    "name": "mv_records",
+    "fields": [
+      {
+        "name": "id",
+        "type": "text"
+      },
+      {
+        "name": "project_id",
+        "type": "text"
+      },
+      {
+        "name": "period",
+        "type": "text"
+      },
+      {
+        "name": "baseline_elec_kwh",
+        "type": "number"
+      },
+      {
+        "name": "elec_kwh",
+        "type": "number"
+      },
+      {
+        "name": "baseline_gas_nm3",
+        "type": "number"
+      },
+      {
+        "name": "gas_nm3",
+        "type": "number"
+      },
+      {
+        "name": "production_t",
+        "type": "number"
+      },
+      {
+        "name": "baseline_production_t",
+        "type": "number"
+      },
+      {
+        "name": "hours",
+        "type": "number"
+      },
+      {
+        "name": "energy_cost",
+        "type": "number"
+      },
+      {
+        "name": "baseline_water_m3",
+        "type": "number"
+      },
+      {
+        "name": "water_m3",
+        "type": "number"
+      },
+      {
+        "name": "baseline_waste_t",
+        "type": "number"
+      },
+      {
+        "name": "waste_t",
+        "type": "number"
+      },
+      {
+        "name": "ghg_tco2e",
+        "type": "number"
+      },
+      {
+        "name": "baseline_ghg_tco2e",
+        "type": "number"
+      },
+      {
+        "name": "verified",
+        "type": "bool"
+      },
+      {
+        "name": "verified_by",
+        "type": "text"
+      },
+      {
+        "name": "notes",
+        "type": "text"
+      }
+    ]
+  },
+  {
+    "name": "kpis",
+    "fields": [
+      {
+        "name": "id",
+        "type": "text"
+      },
+      {
+        "name": "project_id",
+        "type": "text"
+      },
+      {
+        "name": "name",
+        "type": "text"
+      },
+      {
+        "name": "unit",
+        "type": "text"
+      },
+      {
+        "name": "baseline",
+        "type": "number"
+      },
+      {
+        "name": "target_annual",
+        "type": "number"
+      },
+      {
+        "name": "target_monthly",
+        "type": "number"
+      },
+      {
+        "name": "actual",
+        "type": "number"
+      },
+      {
+        "name": "direction",
+        "type": "text",
+        "options": [
+          "higher_is_better",
+          "lower_is_better"
+        ]
+      },
+      {
+        "name": "category",
+        "type": "text"
+      }
+    ]
+  },
+  {
+    "name": "risks",
+    "fields": [
+      {
+        "name": "id",
+        "type": "text"
+      },
+      {
+        "name": "project_id",
+        "type": "text"
+      },
+      {
+        "name": "title",
+        "type": "text"
+      },
+      {
+        "name": "category",
+        "type": "text",
+        "options": [
+          "Technical",
+          "Financial",
+          "Schedule",
+          "Procurement",
+          "HSE",
+          "Compliance",
+          "Operational",
+          "Contractual"
+        ]
+      },
+      {
+        "name": "type",
+        "type": "text",
+        "options": [
+          "Risk",
+          "Issue",
+          "Decision",
+          "Constraint"
+        ]
+      },
+      {
+        "name": "probability",
+        "type": "number"
+      },
+      {
+        "name": "impact",
+        "type": "number"
+      },
+      {
+        "name": "mitigation",
+        "type": "text"
+      },
+      {
+        "name": "responsible",
+        "type": "text"
+      },
+      {
+        "name": "target_date",
+        "type": "text"
+      },
+      {
+        "name": "status",
+        "type": "text",
+        "options": [
+          "Open",
+          "Mitigating",
+          "Escalated",
+          "Closed"
+        ]
+      },
+      {
+        "name": "raised_date",
+        "type": "text"
+      }
+    ]
+  },
+  {
+    "name": "users",
+    "fields": [
+      {
+        "name": "id",
+        "type": "text"
+      },
+      {
+        "name": "name",
+        "type": "text"
+      },
+      {
+        "name": "email",
+        "type": "text"
+      },
+      {
+        "name": "role",
+        "type": "text",
+        "options": [
+          "Administrator",
+          "Editor",
+          "Verifier",
+          "Viewer"
+        ]
+      },
+      {
+        "name": "company",
+        "type": "text"
+      },
+      {
+        "name": "status",
+        "type": "text",
+        "options": [
+          "Active",
+          "Invited",
+          "Suspended"
+        ]
+      },
+      {
+        "name": "last_login",
+        "type": "text"
+      },
+      {
+        "name": "notes",
+        "type": "text"
+      }
+    ]
+  },
+  {
+    "name": "documents",
+    "fields": [
+      {
+        "name": "id",
+        "type": "text"
+      },
+      {
+        "name": "project_id",
+        "type": "text"
+      },
+      {
+        "name": "name",
+        "type": "text"
+      },
+      {
+        "name": "doc_type",
+        "type": "text",
+        "options": [
+          "Feasibility Study",
+          "Business Case",
+          "Technical Offer",
+          "Contract",
+          "Invoice",
+          "Utility Bill",
+          "Calibration Certificate",
+          "Measurement Record",
+          "Verification Report",
+          "Commissioning Report",
+          "Photo",
+          "Other"
+        ]
+      },
+      {
+        "name": "doc_date",
+        "type": "text"
+      },
+      {
+        "name": "reference",
+        "type": "text"
+      },
+      {
+        "name": "content_type",
+        "type": "text"
+      },
+      {
+        "name": "size",
+        "type": "number"
+      },
+      {
+        "name": "collection",
+        "type": "text"
+      },
+      {
+        "name": "uploaded_by",
+        "type": "text"
+      },
+      {
+        "name": "notes",
+        "type": "text"
+      }
+    ]
+  },
+  {
+    "name": "audit_log",
+    "fields": [
+      {
+        "name": "id",
+        "type": "text"
+      },
+      {
+        "name": "ts",
+        "type": "datetime"
+      },
+      {
+        "name": "actor",
+        "type": "text"
+      },
+      {
+        "name": "action",
+        "type": "text"
+      },
+      {
+        "name": "entity",
+        "type": "text"
+      },
+      {
+        "name": "entity_id",
+        "type": "text"
+      },
+      {
+        "name": "detail",
+        "type": "text"
+      }
+    ]
+  },
+  {
+    "name": "settings",
+    "fields": [
+      {
+        "name": "id",
+        "type": "text"
+      },
+      {
+        "name": "key",
+        "type": "text"
+      },
+      {
+        "name": "value",
+        "type": "text"
+      },
+      {
+        "name": "label",
+        "type": "text"
+      },
+      {
+        "name": "group",
+        "type": "text"
+      }
+    ]
+  }
+]
